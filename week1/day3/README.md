@@ -139,17 +139,6 @@ graph TD
     style M fill:#F44336,stroke:#D32F2F,stroke-width:2px,color:#fff
     style Groq API fill:#f4f4f9,stroke:#673ab7,stroke-width:2px,stroke-dasharray: 5 5
 ```
-## 5. Quick Revision Q&A
-
-**Q1. What is the difference between `prompt_tokens` and `completion_tokens`?**
-
-`prompt_tokens` represent the size of your input (the question you asked and any system instructions). `completion_tokens` represent the size of the model's generated output (its answer).
-
-**Q2. Why is the `finish_reason` important?**
-
-It acts as a diagnostic tool. If an answer cuts off mid-sentence and the finish reason is `length`, you know you need to increase your `max_tokens` parameter. If it says `stop`, the model successfully completed its thought.
-
-**Q3. Why did the model output blank text for a prompt when `max_tokens` was 500?**
 
 Advanced reasoning models (like `gpt-oss-120b`) use invisible tokens to "think" before they write. If a prompt requires heavy logical planning, the model will consume all 500 tokens on internal reasoning, hitting the `length` limit before outputting any visible answer.
 
