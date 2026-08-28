@@ -139,9 +139,3 @@ graph TD
     style M fill:#F44336,stroke:#D32F2F,stroke-width:2px,color:#fff
     style Groq API fill:#f4f4f9,stroke:#673ab7,stroke-width:2px,stroke-dasharray: 5 5
 ```
-
-Advanced reasoning models (like `gpt-oss-120b`) use invisible tokens to "think" before they write. If a prompt requires heavy logical planning, the model will consume all 500 tokens on internal reasoning, hitting the `length` limit before outputting any visible answer.
-
-**Q4. How do you prevent a reasoning model from blanking out on complex queries?**
-
-You must give it a significantly larger runway to process its thoughts by increasing the `max_tokens` parameter (e.g., `max_tokens=2000` or higher).
