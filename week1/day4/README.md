@@ -16,9 +16,6 @@ By default, LLMs return unstructured text (like a conversational paragraph). Whe
 * **Deserialization (`json.loads()`):** Taking the raw text string returned by the LLM and converting it back into a usable Python dictionary.
 
 ## 2. The Code (`json_extraction.py`)
-
-*(Note: Minor typos like `respone` and `tickey` from the draft have been corrected for clean execution).*
-
 ```python
 import os
 import json
