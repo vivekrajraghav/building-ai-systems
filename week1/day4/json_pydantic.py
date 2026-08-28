@@ -54,8 +54,8 @@ message={
 messages=[message_system,message]
 
 # Getting response from LLM
-respone=client.chat.completions.create(model=model,messages=messages,response_format=response_format)
-answer=respone.choices[0].message.content
+response=client.chat.completions.create(model=model,messages=messages,response_format=response_format)
+answer=response.choices[0].message.content
 print(answer)
 
 # Reading Raw JSON file
