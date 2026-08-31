@@ -14,18 +14,10 @@ if not my_api_key:
 client=Groq(api_key=my_api_key)
 model="openai/gpt-oss-120b"
 
-def get_llm_reponse(prompt):
-    message={
-        "role":"user",
-        "content":prompt
-    }
-    messages=[message]
-    response=client.chat.completions.create(model=model, messages=messages)
-    ans=response.choices[0].message.content
-    return ans
+# User Prompt
 user_prompt="I found insects in my food"
-# Prompt Engineering
-pre_engineered_prompt=f"""
+# System Prompt
+system_prompt=f"""
 # Role
 You're a highly professional, empathetic, and repsonsive customer support agent for a food company
 
@@ -63,8 +55,19 @@ if you cannot process the refund automatically:
 Immediately stop the automated flow and output exactly: "I am so sorry for this experience. 
 Because of the severity of this issue, I am transferring you directly to a
  human supervisor right now who will resolve this for you immediately. Please hold for just a moment."
-This is the user complaint:
-{user_prompt}
 """
+def get_llm_reponse(user_prompt,system_prompt):
+    user_message={
+        "role":"user",
+        "content":user_prompt
+    }
+    system_message={
+        "role":"system",
+        "content":system_prompt
+    }
+    messages=[system_message,user_message]
+    response=client.chat.completions.create(model=model, messages=messages)
+    ans=response.choices[0].message.content
+    return ans
 
-print(get_llm_reponse(pre_engineered_prompt))
+print(get_llm_reponse(user_prompt,system_prompt))
