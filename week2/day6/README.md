@@ -1,4 +1,4 @@
-# Week 2, Day 6: Advanced Prompt Engineering Frameworks
+# Week 2, Day 6: Prompt Engineering Frameworks
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue.svg?logo=python&logoColor=white)
 ![Groq](https://img.shields.io/badge/Groq-API-F37B60)
@@ -17,7 +17,7 @@ When building AI agents for the real world, simply asking the LLM to "reply to t
 5. **Example (Few-Shot Prompting):** Providing a perfect mock conversation. LLMs are exceptional pattern matchers; showing them one good example drastically improves accuracy.
 6. **Fallback:** A safety net instruction for edge cases or abusive language, ensuring the bot gracefully hands off to a human instead of hallucinating.
 
-## 2. The Code (`advanced_prompting.py`)
+## 2. The Code (`prompt_eng.py`)
 
 *(Note: Minor spelling typos from the draft have been corrected for clean execution and a professional portfolio presence).*
 
