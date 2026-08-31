@@ -3,6 +3,7 @@
 ![Python](https://img.shields.io/badge/Python-3.11-blue.svg?logo=python&logoColor=white)
 ![Groq](https://img.shields.io/badge/Groq-API-F37B60)
 ![Prompt Engineering](https://img.shields.io/badge/Prompt_Engineering-Advanced-059142)
+
 This document covers how to transition from writing basic instructions to crafting **Production-Grade Prompts**. By using a structured framework and separating the system backend from the user frontend, we can strictly control an LLM's persona, output format, and safety boundaries—preventing it from giving dangerous advice or falling victim to prompt injection attacks.
 ## 1. Core Concepts
 
@@ -23,7 +24,7 @@ A critical best practice in AI engineering is separating instructions from user 
 
 ---
 
-## 2. The Code (`advanced_prompting.py`)
+## 2. The Code (`prompt_eng.py`)
 
 ```python
 import os
