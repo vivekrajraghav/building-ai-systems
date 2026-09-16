@@ -1,7 +1,6 @@
 import os
 from groq import Groq
 from dotenv import load_dotenv
-from time import sleep
 
 load_dotenv()
 
