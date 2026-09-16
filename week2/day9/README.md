@@ -80,25 +80,27 @@ for chunk in stream:
 
 ```mermaid
 graph TD
-    subgraph Standard API Call (High Latency)
-    A[Send Prompt] -->|Wait 5s| B[LLM Generates 100% of Text]
-    B --> C[Return Full Payload]
-    C --> D[Print Block of Text]
+    subgraph standard ["Standard API Call (High Latency)"]
+        A[Send Prompt] -->|Wait 5s| B[LLM Generates 100% of Text]
+        B --> C[Return Full Payload]
+        C --> D[Print Block of Text]
     end
     
-    subgraph Streaming API Call (Low Latency)
-    E[Send Prompt] -->|Wait 0.2s| F[LLM Generates 1st Token]
-    F --> G[Return Chunk 1]
-    G --> H[Print Token]
+    %% This invisible link forces the second subgraph to render below the first
+    D ~~~ E
     
-    F -->|Wait 0.1s| I[LLM Generates 2nd Token]
-    I --> J[Return Chunk 2]
-    J --> K[Print Token]
-    
-    H -.->|Real-time Loop| K
+    subgraph streaming ["Streaming API Call (Low Latency)"]
+        E[Send Prompt] -->|Wait 0.2s| F[LLM Generates 1st Token]
+        F --> G[Return Chunk 1]
+        G --> H[Print Token]
+        
+        F -->|Wait 0.1s| I[LLM Generates 2nd Token]
+        I --> J[Return Chunk 2]
+        J --> K[Print Token]
+        
+        H -.->|Real-time Loop| K
     end
     
-    style Standard API Call fill:#ffebee,stroke:#f44336,stroke-width:2px
-    style Streaming API Call fill:#e8f5e9,stroke:#4caf50,stroke-width:2px
-
+    style standard fill:#ffebee,stroke:#f44336,stroke-width:2px
+    style streaming fill:#e8f5e9,stroke:#4caf50,stroke-width:2px
 ```
