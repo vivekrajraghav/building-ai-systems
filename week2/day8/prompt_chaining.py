@@ -111,7 +111,7 @@ def resume_skill_extract(Resume):
     system_prompt="""
     You are a professional HR assistant. Extract the skills from the candidates resume provided.
     Only return the skills no other information. Do not invent any skills by yourself. 
-    Output format: All skills should be arrange in line through comma seperation
+    Output format: All skills should be arrange in a single line, separated by commas
     """
     user_prompt=f"""
     Extract the skills from this resume
@@ -123,7 +123,7 @@ def jd_skill_extract(JD):
     system_prompt="""
     You are a professional HR assistant. Extract the skills from the Job description  provided.
     Only return the skills no other information. Do not invent any skills by yourself.
-    Output format: All skills should be arrange in line through comma seperation
+    Output format: All skills should be arrange in a single line, separated by commas
     """
     user_prompt=f"""
     Extract the skills from this JD {JD}
@@ -133,7 +133,7 @@ def jd_skill_extract(JD):
 def skill_comparision_scoring(candidate,jd):
     system_prompt="""
     You are a professional HR assistant. compare the skills of candidate and the skills required in the JD and produce a final score between
-    1 and 100. also produce a short verdict whther the candidate is a good fit for the role.
+    1 and 100. also produce a short verdict whether the candidate is a good fit for the role.
     """
     user_prompt=f"""
     Compare and matc h the skills Resume: {candidate} and JD {jd}
